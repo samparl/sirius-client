@@ -6,30 +6,31 @@
   justify-content: space-between;
 }
 
-.Pagination li {
+.Pagination li a {
   display: flex;
+  border-radius: 100%;
   width: 4em;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-.Pagination li:focus {
+.Pagination li a:focus {
   outline: none;
 }
 
-.Pagination li:not(.break) {
-  border-radius: 100%;
+.Pagination li:not(.break) a {
   box-shadow: 0 3px 10px 0 rgba(0,0,0,0.08);
   transition: box-shadow 0.2s ease-in-out;
   height: 4em;
 }
 
-.Pagination li:not(.break):not(.active):hover {
+.Pagination li:not(.break) a:not(.active):hover {
   cursor: pointer;
 }
 
-.Pagination li.active,
-.Pagination li.disabled {
+.Pagination li.active a,
+.Pagination li.disabled a {
   pointer-events: none;
   background: #eee;
 }
