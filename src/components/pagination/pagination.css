@@ -1,0 +1,41 @@
+.Pagination {
+  margin: 0 2em;
+  padding: 2em;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Pagination li {
+  display: flex;
+  width: 4em;
+  justify-content: center;
+  align-items: center;
+}
+
+.Pagination li:focus {
+  outline: none;
+}
+
+.Pagination li:not(.break) {
+  border-radius: 100%;
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease-in-out;
+  height: 4em;
+}
+
+.Pagination li:not(.break):not(.active):hover {
+  cursor: pointer;
+}
+
+.Pagination li.active,
+.Pagination li.disabled {
+  pointer-events: none;
+  background: #eee;
+}
+
+.Pagination li.break {
+  font-size: 2em;
+  letter-spacing: .5em;
+  pointer-events: none;
+}

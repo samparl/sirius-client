@@ -4,6 +4,7 @@ import { ShipmentService } from 'services';
 import { ShipmentCard } from '../shipment-card';
 import { SectionHeader } from '../section-header';
 import { DashboardSummary } from '../dashboard-summary';
+import { Pagination } from '../pagination';
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -15,16 +16,22 @@ export class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    ShipmentService.getShipments(1)
+    this.getPage(0);
+  }
+
+  onPageChange(data) {
+    this.getPage(data.selected);
+  }
+
+  getPage(page) {
+    ShipmentService.getShipments(page)
       .then(response => {
         this.setState({
+          summary: response.summary,
           shipments: JSON.parse(response.shipments),
           total_pages: response.total_pages
         });
       });
-
-    ShipmentService.getShipmentsSummary()
-      .then(summary => { this.setState({summary}); });
   }
 
   render() {
@@ -38,6 +45,9 @@ export class Dashboard extends React.Component {
             this.state.shipments.map((shipment, index) => <ShipmentCard {...shipment} key={index}/>)
           }
         </div>
+        <Pagination
+          onPageChange={ this.onPageChange.bind(this) }
+          pageCount={ this.state.total_pages } />
       </div>
     );
   }

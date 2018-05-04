@@ -2,13 +2,8 @@
 const uri = 'http://localhost:3000';
 
 export class ShipmentService {
-  static getShipments() {
-    const endpoint = '/v1/shipments';
-    return fetch(uri + endpoint).then(response => response.json());
-  }
-
-  static getShipmentsSummary() {
-    const endpoint = '/v1/shipments/summary';
+  static getShipments(page) {
+    const endpoint = `/v1/shipments?page=${ page }`;
     return fetch(uri + endpoint).then(response => response.json());
   }
 }
