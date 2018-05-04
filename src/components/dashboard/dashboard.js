@@ -17,6 +17,7 @@ export class Dashboard extends React.Component {
 
   componentDidMount() {
     this.getPage(0);
+    this.getShipmentsSummary();
   }
 
   onPageChange(data) {
@@ -27,10 +28,16 @@ export class Dashboard extends React.Component {
     ShipmentService.getShipments(page)
       .then(response => {
         this.setState({
-          summary: response.summary,
           shipments: JSON.parse(response.shipments),
           total_pages: response.total_pages
         });
+      });
+  }
+
+  getShipmentsSummary() {
+    ShipmentService.getShipmentsSummary()
+      .then(summary => {
+        this.setState({ summary });
       });
   }
 
