@@ -1,0 +1,49 @@
+.ShipmentCard {
+  display: flex;
+  flex-direction: column;
+  min-height: 3rem;
+  padding: .5rem;
+  margin: .5rem 1rem;
+  margin-top: 0;
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease-in-out;
+  text-align: justify;
+}
+
+.ShipmentCard.late {
+  color: #ec4949;
+}
+
+.ShipmentCard:hover {
+  box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.ShipmentCard .ShipmentCard-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: .75em;
+}
+
+.ShipmentCard .ShipmentCard-status {
+  text-transform: capitalize;
+}
+
+.ShipmentCard .ShipmentCard-date {
+  margin-left: .5rem;
+}
+
+.ShipmentCard .projected-date {
+  text-align: right;
+}
+
+.ShipmentCard .ShipmentCard-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media(max-width: 600px) {
+  .ShipmentCard .ShipmentCard-info {
+    flex-direction: column;
+  }
+}

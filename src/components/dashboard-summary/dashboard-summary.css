@@ -1,0 +1,30 @@
+.DashboardSummary {
+  display: inline-block;
+  vertical-align: text-bottom;
+  width: 50%;
+  text-align: right;
+  font-size: 1.25rem;
+}
+
+.DashboardSummary .summary-categories {
+  display: flex;
+  flex-direction: row;
+}
+
+.DashboardSummary .summary-category {
+  display: flex;
+  flex-direction: column;
+  flex: 1
+}
+
+.DashboardSummary .on-time {
+  color: #00c000;
+}
+
+.DashboardSummary .late {
+  color: #ff9d00;
+}
+
+.DashboardSummary .very-late {
+  color: #ec4949;
+}
