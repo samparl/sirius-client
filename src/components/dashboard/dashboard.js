@@ -15,8 +15,13 @@ export class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    ShipmentService.getShipments()
-      .then(shipments => { this.setState({shipments}); });
+    ShipmentService.getShipments(1)
+      .then(response => {
+        this.setState({
+          shipments: JSON.parse(response.shipments),
+          total_pages: response.total_pages
+        });
+      });
 
     ShipmentService.getShipmentsSummary()
       .then(summary => { this.setState({summary}); });
