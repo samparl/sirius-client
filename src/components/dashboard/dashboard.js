@@ -5,6 +5,7 @@ import { ShipmentCard } from '../shipment-card';
 import { SectionHeader } from '../section-header';
 import { DashboardSummary } from '../dashboard-summary';
 import { Pagination } from '../pagination';
+import { DashboardFilter } from '../dashboard-filter';
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -41,15 +42,20 @@ export class Dashboard extends React.Component {
       });
   }
 
+  onClick(shipment, e) {
+    console.log({shipment});
+  }
+
   render() {
     return (
       <div className="Dashboard">
         <SectionHeader title="Dashboard">
           <DashboardSummary { ...this.state.summary }/>
         </SectionHeader>
+        <DashboardFilter />
         <div className="shipments">
           {
-            this.state.shipments.map((shipment, index) => <ShipmentCard {...shipment} key={index}/>)
+            this.state.shipments.map((shipment, index) => <ShipmentCard {...shipment} key={index} onClick={ this.onClick.bind(this, shipment) } />)
           }
         </div>
         <Pagination
