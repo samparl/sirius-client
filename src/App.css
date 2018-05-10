@@ -6,6 +6,10 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+div, input, span {
+  box-sizing: border-box;
+}
+
 .App-menu {
   background-color: #222;
   padding: 15px;
@@ -15,4 +19,8 @@ body {
 .App-title {
   font-size: 1em;
   text-align: left;
+}
+
+.App-body {
+  margin: 0 1rem;
 }
