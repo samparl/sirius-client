@@ -1,14 +1,40 @@
 import React from 'react';
 import { DateUtil } from 'utils';
-import { ScheduledDateRange } from './scheduled-date-range';
+import { DateRange } from '../date-range';
 
 export class DashboardFilter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      start: null,
-      end: null
+      scheduled: {
+        start: null,
+        end: null,
+        focused: null
+      },
+      estimated: {
+        start: null,
+        end: null,
+        focused: null
+      }
     };
+  }
+
+  setScheduledDates(scheduled) {
+    this.setState(scheduled);
+  }
+
+  focusScheduled(focused) {
+    const scheduled = Object.assign({}, this.state.scheduled, focused );
+    this.setState({scheduled});
+  }
+
+  setProjectedDates(projected) {
+    this.setState(projected);
+  }
+
+  focusProjected(focused) {
+    const projected = Object.assign({}, this.state.projected, focused );
+    this.setState({projected});
   }
 
   render() {
@@ -17,13 +43,23 @@ export class DashboardFilter extends React.Component {
         <span className="vendor autocomplete">Vendor</span>
         <span className="status dropdown">Status</span>
         <span className="scheduled date-range">
-          <ScheduledDateRange
+          <DateRange
             startDate={ this.state.start }
             endDate={ this.state.end }
-            onDatesChange={ ({ startDate, endDate }) => { this.setState({ startDate, endDate }); } }
-            />
+            onDatesChange={ this.setScheduledDates.bind(this) }
+            focusedInput={ this.state.scheduled.focused }
+            onFocusChange={ this.focusEstimated.bind(this) }
+          />
         </span>
-        <span className="projected date-range">Projected</span>
+        <span className="projected date-range">
+          <DateRange
+            startDate={ this.state.start }
+            endDate={ this.state.end }
+            onDatesChange={ this.setProjectedDates.bind(this) }
+            focusedInput={ this.state.estimated.focused }
+            onFocusChange={ this.focusProjected.bind(this) }
+          />
+        </span>
       </div>
     );
   }
