@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb",
+  "installedESLint": true,
+  "ecmaVersion": 2018,
+  "ecmaFeatures": {
+    "experimentalObjectRestSpread": true
+  },
+  "plugins": [
+      "react"
+  ]
+}
