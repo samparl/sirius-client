@@ -1,7 +1,6 @@
 import React from 'react';
-require('./dashboard-filter.css');
-import { DateUtil } from 'utils';
 import { DateRange } from '../date-range';
+import './dashboard-filter.css';
 
 export class DashboardFilter extends React.Component {
   constructor(props) {
@@ -12,12 +11,12 @@ export class DashboardFilter extends React.Component {
       scheduled: {
         startDate: null,
         endDate: null,
-        focused: null
+        focused: null,
       },
       projected: {
         startDate: null,
         endDate: null,
-        focused: null
+        focused: null,
       }
     };
   }
@@ -27,14 +26,9 @@ export class DashboardFilter extends React.Component {
     const scheduled = {
       ...oldState,
       startDate: startDate || oldState.startDate,
-      endDate: endDate || oldState.endDate
+      endDate: endDate || oldState.endDate,
     };
     this.setState({ scheduled });
-  }
-
-  focusScheduled(focused) {
-    const scheduled = { ...this.state.scheduled, focused };
-    this.setState({scheduled});
   }
 
   setProjectedDates({ startDate, endDate }) {
@@ -42,9 +36,14 @@ export class DashboardFilter extends React.Component {
     const projected = {
       ...oldState,
       startDate: startDate || oldState.startDate,
-      endDate: endDate || oldState.endDate
+      endDate: endDate || oldState.endDate,
     };
     this.setState({ projected });
+  }
+
+  focusScheduled(focused) {
+    const scheduled = { ...this.state.scheduled, focused };
+    this.setState({ scheduled });
   }
 
   focusProjected(focused) {

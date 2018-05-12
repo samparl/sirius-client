@@ -29,8 +29,6 @@
   font-size: 18px;
   font-weight: lighter;
   width: 100%;
-  border-width: 1px;
-  border-style: solid;
 }
 
 .filter-input:focus {
