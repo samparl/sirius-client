@@ -9,5 +9,16 @@
 
 .SectionHeader .section-title {
   font-size: 4em;
-  margin-right: 2em;
+  margin-right: auto;
+}
+
+@media(max-width: 600px) {
+  .SectionHeader {
+    flex-direction: column;
+  }
+
+  .SectionHeader > * {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

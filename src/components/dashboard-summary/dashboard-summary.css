@@ -1,7 +1,7 @@
 .DashboardSummary {
   display: inline-block;
   vertical-align: text-bottom;
-  width: 50%;
+  width: 20em;
   text-align: right;
   font-size: 1.25rem;
 }
@@ -27,4 +27,10 @@
 
 .DashboardSummary .very-late {
   color: #ec4949;
+}
+
+@media(max-width: 600px) {
+  .summary-category {
+    text-align: center;
+  }
 }
