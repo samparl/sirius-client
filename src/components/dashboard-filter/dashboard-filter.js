@@ -55,20 +55,20 @@ export class DashboardFilter extends React.Component {
   render() {
     return (
       <div className="DashboardFilter">
-        <span className="vendor autocomplete">
-          <span className="vendor-label">Vendor</span>
-          <input
+        <span className="vendor autocomplete filter-option">
+          <span className="label">Vendor</span>
+          <input className="filter-input"
             onChange={ e => this.setState({ vendor: e.target.value }) }
             value={ this.state.vendor } />
         </span>
-        <span className="status dropdown">
-          <span className="status-label">Status</span>
-          <input
+        <span className="status dropdown filter-option">
+          <span className="label">Status</span>
+          <input className="filter-input"
             onChange={ e => this.setState({ status: e.target.value }) }
             value={ this.state.status } />
         </span>
-        <span className="scheduled date-range">
-          <span className="date-range-label">Scheduled Delivery</span>
+        <span className="scheduled date-range filter-option">
+          <span className="label">Scheduled Delivery</span>
           <DateRange
             startDateId="scheduledStart"
             startDate={ this.state.scheduled.startDate }
@@ -79,8 +79,8 @@ export class DashboardFilter extends React.Component {
             focusedInput={ this.state.scheduled.focused }
           />
         </span>
-        <span className="projected date-range">
-          <span className="date-range-label">Projected Delivery</span>
+        <span className="projected date-range filter-option">
+          <span className="label">Projected Delivery</span>
           <DateRange
             startDateId="projectedStart"
             startDate={ this.state.projected.startDate }
