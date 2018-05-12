@@ -3,6 +3,10 @@
   max-width: 286px;
 }
 
+.DateInput_input {
+  border-bottom: 0;
+}
+
 .DateRangePicker {
   width: 100%;
 }
