@@ -2,6 +2,7 @@ import React from 'react';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import './date-range.css';
 
 export const DateRange = (props) => (
   <DateRangePicker

@@ -1,3 +1,16 @@
+.DashboardFilter {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1em;
+}
+
+.dates, .inputs {
+  display: flex;
+  margin-bottom: 1em;
+  flex: 1;
+  justify-content: space-around;
+}
+
 .date-range {
   display: inline-block;
 }
@@ -5,6 +18,7 @@
 .filter-option {
   display: inline-block;
   vertical-align: bottom;
+  flex: 1;
 }
 
 .filter-input {
@@ -12,6 +26,7 @@
   line-height: 24px;
   font-size: 18px;
   font-weight: lighter;
+  width: 100%;
 }
 
 .filter-input:focus {
@@ -20,4 +35,20 @@
 
 .label {
   display: block;
+}
+
+@media(max-width: 1035px) {
+  .DashboardFilter {
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 600px) {
+  .dates, .inputs {
+    flex-direction: column;
+  }
+
+  .filter-input {
+    width: 100%;
+  }
 }

@@ -55,41 +55,45 @@ export class DashboardFilter extends React.Component {
   render() {
     return (
       <div className="DashboardFilter">
-        <span className="vendor autocomplete filter-option">
-          <span className="label">Vendor</span>
-          <input className="filter-input"
-            onChange={ e => this.setState({ vendor: e.target.value }) }
-            value={ this.state.vendor } />
+        <span className="inputs">
+          <span className="vendor autocomplete filter-option">
+            <span className="label">Vendor</span>
+            <input className="filter-input"
+              onChange={ e => this.setState({ vendor: e.target.value }) }
+              value={ this.state.vendor } />
+          </span>
+          <span className="status dropdown filter-option">
+            <span className="label">Status</span>
+            <input className="filter-input"
+              onChange={ e => this.setState({ status: e.target.value }) }
+              value={ this.state.status } />
+          </span>
         </span>
-        <span className="status dropdown filter-option">
-          <span className="label">Status</span>
-          <input className="filter-input"
-            onChange={ e => this.setState({ status: e.target.value }) }
-            value={ this.state.status } />
-        </span>
-        <span className="scheduled date-range filter-option">
-          <span className="label">Scheduled Delivery</span>
-          <DateRange
-            startDateId="scheduledStart"
-            startDate={ this.state.scheduled.startDate }
-            endDateId="scheduledEnd"
-            endDate={ this.state.scheduled.endDate }
-            onDatesChange={ this.setScheduledDates.bind(this) }
-            onFocusChange={ this.focusScheduled.bind(this) }
-            focusedInput={ this.state.scheduled.focused }
-          />
-        </span>
-        <span className="projected date-range filter-option">
-          <span className="label">Projected Delivery</span>
-          <DateRange
-            startDateId="projectedStart"
-            startDate={ this.state.projected.startDate }
-            endDateId="projectedEnd"
-            endDate={ this.state.projected.endDate }
-            onDatesChange={ this.setProjectedDates.bind(this) }
-            onFocusChange={ this.focusProjected.bind(this) }
-            focusedInput={ this.state.projected.focused }
-          />
+        <span className="dates">
+          <span className="scheduled date-range filter-option">
+            <span className="label">Scheduled Delivery</span>
+            <DateRange
+              startDateId="scheduledStart"
+              startDate={ this.state.scheduled.startDate }
+              endDateId="scheduledEnd"
+              endDate={ this.state.scheduled.endDate }
+              onDatesChange={ this.setScheduledDates.bind(this) }
+              onFocusChange={ this.focusScheduled.bind(this) }
+              focusedInput={ this.state.scheduled.focused }
+            />
+          </span>
+          <span className="projected date-range filter-option">
+            <span className="label">Projected Delivery</span>
+            <DateRange
+              startDateId="projectedStart"
+              startDate={ this.state.projected.startDate }
+              endDateId="projectedEnd"
+              endDate={ this.state.projected.endDate }
+              onDatesChange={ this.setProjectedDates.bind(this) }
+              onFocusChange={ this.focusProjected.bind(this) }
+              focusedInput={ this.state.projected.focused }
+            />
+          </span>
         </span>
       </div>
     );
