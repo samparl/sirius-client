@@ -1,13 +1,16 @@
 .DashboardFilter {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5px;
   justify-content: space-around;
   margin-bottom: 1em;
 }
 
 .dates, .inputs {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5px;
   margin-bottom: 1em;
-  flex: 1;
   justify-content: space-around;
 }
 
@@ -18,7 +21,6 @@
 .filter-option {
   display: inline-block;
   vertical-align: bottom;
-  flex: 1;
 }
 
 .filter-input {
@@ -43,9 +45,15 @@
   }
 }
 
+@media(max-width: 1035px) {
+  .DashboardFilter {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media(max-width: 600px) {
   .dates, .inputs {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .filter-input {
