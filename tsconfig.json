@@ -8,6 +8,7 @@
         "jsx": "react",
         "baseUrl": ".",
         "paths": {
+            "assets/*": ["assets/*"],
             "services": ["src/services"],
             "utils": ["src/utils"],
             "types": ["src/types"]

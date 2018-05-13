@@ -9,19 +9,21 @@ body {
 div, input, span {
   box-sizing: border-box;
 }
-/* 
-input {
-  border: 1px solid #cacccd;
-} */
 
 .App-menu {
   background-color: #222;
   padding: 15px;
   color: white;
+  vertical-align: middle;
+}
+
+.App-icon {
+  width: 4rem;
 }
 
 .App-title {
-  font-size: 1em;
+  margin: .5rem;
+  font-size: 2em;
   text-align: left;
 }
 

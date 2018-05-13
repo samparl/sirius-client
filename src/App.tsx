@@ -7,6 +7,7 @@ class App extends React.Component<null, null> {
     return (
       <div className="App">
         <header className="App-menu">
+          <img className="App-icon" src="assets/images/dog-outline.png" />
           <span className="App-title">Welcome to Sirius!</span>
           <span className="App-route"></span>
         </header>
