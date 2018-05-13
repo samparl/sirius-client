@@ -1,8 +1,7 @@
 import * as React from 'react';
 import './dashboard-filter.css';
 import { DateInput } from 'types';
-import { DateRange } from '../date-range';
-import { FilterDropdown } from '../filter-dropdown';
+import { DateRange, FilterDropdown } from 'components';
 
 class DashboardFilterState {
   vendor: any;

@@ -9,9 +9,10 @@
         "baseUrl": ".",
         "paths": {
             "assets/*": ["assets/*"],
-            "services": ["src/services"],
-            "utils": ["src/utils"],
-            "types": ["src/types"]
+            "components": ["src/common/components"],
+            "services": ["src/common/services"],
+            "utils": ["src/common/utils"],
+            "types": ["src/common/types"]
         }
     },
     "include": [

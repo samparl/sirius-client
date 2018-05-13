@@ -1,12 +1,13 @@
 import * as React from 'react';
 
-import { ShipmentService } from 'services';
-import { ShipmentCard } from '../shipment-card';
-import { SectionHeader } from '../section-header';
-import { DashboardSummary } from '../dashboard-summary';
-import { Pagination } from '../pagination';
-import { DashboardFilter } from '../dashboard-filter';
 import { DashboardType } from 'types';
+import { ShipmentService } from 'services';
+import { SectionHeader, Pagination } from 'components';
+import {
+  ShipmentCard, 
+  DashboardSummary,
+  DashboardFilter,
+} from './components';
 
 export class Dashboard extends React.Component<null, DashboardType> {
   constructor(props: any) {
