@@ -10,7 +10,9 @@ div, input, span {
   box-sizing: border-box;
 }
 
-.App-menu {
+.App-header {
+  display: grid;
+  grid-template-columns: 5em 10em 1fr;
   background-color: #222;
   padding: 15px;
   color: white;
@@ -25,6 +27,13 @@ div, input, span {
   margin: .5rem;
   font-size: 2em;
   text-align: left;
+}
+
+.App-menu {
+  display: grid;
+  justify-content: right;
+  align-content: center;
+  font-size: 3em;
 }
 
 .App-body {

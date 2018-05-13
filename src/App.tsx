@@ -6,10 +6,12 @@ class App extends React.Component<null, null> {
   render() {
     return (
       <div className="App">
-        <header className="App-menu">
+        <header className="App-header">
           <img className="App-icon" src="assets/images/dog-outline.png" />
           <span className="App-title">Welcome to Sirius!</span>
-          <span className="App-route"></span>
+          <span className="App-menu">
+            <i className="far fa-user-circle"></i>
+          </span>
         </header>
         <div className="App-body">
           <Dashboard />
