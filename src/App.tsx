@@ -14,6 +14,7 @@ class App extends React.Component<null, null> {
           </span>
         </header>
         <div className="App-body">
+          <DefaultView />
           <Dashboard />
         </div>
       </div>

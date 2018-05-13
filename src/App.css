@@ -21,6 +21,7 @@ div, input, span {
 
 .App-icon {
   width: 4rem;
+  align-self: center;
 }
 
 .App-title {
