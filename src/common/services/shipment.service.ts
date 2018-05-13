@@ -1,4 +1,4 @@
-import { SummaryType, ShipmentType } from 'types';
+import { SummaryType, ShipmentType } from 'common/types';
 
 const uri = 'http://localhost:3000';
 

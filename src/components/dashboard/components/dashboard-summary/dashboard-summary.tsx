@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SummaryType } from 'types';
+import { SummaryType } from 'common/types';
 require('./dashboard-summary.css');
 
 export const DashboardSummary = (props: SummaryType) => (

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ShipmentType } from 'types';
+import { ShipmentType } from 'common/types';
 require('./shipment-card.css');
 
 export const ShipmentCard: React.SFC<ShipmentType> = (props) => {

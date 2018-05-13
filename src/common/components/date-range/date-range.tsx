@@ -3,7 +3,7 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import './date-range.css';
 import { DateRangePicker } from 'react-dates';
-import { DateInput } from 'types';
+import { DateInput } from 'common/types';
 
 class DateRangeProps extends DateInput {
   onDatesChange: () => {};

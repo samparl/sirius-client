@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.css';
-import { Dashboard } from './components';
+import { Dashboard, DefaultView } from './components';
 
 class App extends React.Component<null, null> {
   render() {
@@ -14,12 +14,6 @@ class App extends React.Component<null, null> {
           </span>
         </header>
         <div className="App-body">
-          <div className="DefaultView">
-            <div className="DefaultView-introduction">
-              Welcome to Sirius! We do our best to connect people with the products they love and need.
-              Watch your new purchase make its way to your doorstep, from start to finish!
-            </div>
-          </div>
           <Dashboard />
         </div>
       </div>

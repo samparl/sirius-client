@@ -1,13 +1,9 @@
 import * as React from 'react';
 
-import { DashboardType } from 'types';
-import { ShipmentService } from 'services';
-import { SectionHeader, Pagination } from 'components';
-import {
-  ShipmentCard, 
-  DashboardSummary,
-  DashboardFilter,
-} from './components';
+import { DashboardType } from 'common/types';
+import { ShipmentService } from 'common/services';
+import { SectionHeader, Pagination } from 'common/components';
+import { ShipmentCard, DashboardSummary, DashboardFilter } from './components';
 
 export class Dashboard extends React.Component<null, DashboardType> {
   constructor(props: any) {
