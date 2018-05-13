@@ -9,10 +9,10 @@ body {
 div, input, span {
   box-sizing: border-box;
 }
-
+/* 
 input {
   border: 1px solid #cacccd;
-}
+} */
 
 .App-menu {
   background-color: #222;

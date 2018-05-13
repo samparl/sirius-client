@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { DateRange } from '../date-range';
-import { DateInput } from 'types';
 import './dashboard-filter.css';
+import { DateInput } from 'types';
+import { DateRange } from '../date-range';
+import { FilterDropdown } from '../filter-dropdown';
 
 class DashboardFilterState {
   vendor: any;
@@ -53,7 +54,12 @@ export class DashboardFilter extends React.Component<null, DashboardFilterState>
     this.setState({ projected });
   }
 
+  onSelectStatus(option: any) {
+    this.setState({ status: option })
+  }
+
   render() {
+    const options = [{ name: 'Pending' }, { name: 'Shipped' }, { name: 'Failed' }, { name: 'Delivered' }];
     return (
       <div className="DashboardFilter">
         <span className="inputs">
@@ -61,13 +67,11 @@ export class DashboardFilter extends React.Component<null, DashboardFilterState>
             <span className="label">Vendor</span>
             <input className="filter-input"
               onChange={ e => this.setState({ vendor: e.target.value }) }
-              value={ this.state.vendor } />
+              value={ this.state.vendor && this.state.vendor } />
           </span>
           <span className="status dropdown filter-option">
             <span className="label">Status</span>
-            <input className="filter-input"
-              onChange={ e => this.setState({ status: e.target.value }) }
-              value={ this.state.status } />
+            <FilterDropdown options={ options } onSelect={ this.onSelectStatus.bind(this) } />
           </span>
         </span>
         <span className="dates">

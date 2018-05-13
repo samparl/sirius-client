@@ -1,0 +1,27 @@
+.FilterDropdown {
+    position: relative;
+}
+
+.FilterDropdown:hover {
+    cursor: pointer;
+}
+
+.FilterDropdown .filter-dropdown-options {
+    position: absolute;
+    z-index: 1;
+    cursor: default;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 1px 1px #eee;
+}
+
+.FilterDropdown .filter-dropdown-option {
+    padding: .5rem 1rem;
+}
+
+.FilterDropdown .filter-dropdown-option:hover {
+    background: #eee;
+    cursor: pointer;
+}
