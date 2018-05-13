@@ -2,7 +2,7 @@ import * as React from 'react';
 import './App.css';
 import { Dashboard } from './components';
 
-class App extends React.Component {
+class App extends React.Component<null, null> {
   render() {
     return (
       <div className="App">

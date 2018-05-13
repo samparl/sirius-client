@@ -1,14 +1,15 @@
-import React from 'react';
+import * as React from 'react';
+import { ShipmentType } from 'types';
 require('./shipment-card.css');
 
-export const ShipmentCard = (props) => {
-  const late = props.scheduled_delivery < props.projected_delivery ?
+export const ShipmentCard: React.SFC<ShipmentType> = (props) => {
+  const late = new Date(props.scheduled_delivery) < new Date(props.projected_delivery) ?
   ' late' : '';
   const className = `ShipmentCard` + late;
   return (
     <div className={ className }>
       <div className="ShipmentCard-header">
-        <div className="ShipmentCard-id">Shipment Id: {props.id}</div>
+        <div className="ShipmentCard-id">Shipment Id: { props.id }</div>
         <span className="scheduled-date">
           <span>
             Scheduled Delivery:
@@ -29,10 +30,10 @@ export const ShipmentCard = (props) => {
 
       <div className="ShipmentCard-info">
         <div className="vendor-name">
-          Vendor: {props.vendor.name}
+          Vendor: { props.vendor.name }
         </div>
-        <div className={`ShipmentCard-status ${props.status}`}>
-          Status: {props.status}
+        <div className={ `ShipmentCard-status ${ props.status }` }>
+          Status: { props.status }
         </div>
       </div>
     </div>

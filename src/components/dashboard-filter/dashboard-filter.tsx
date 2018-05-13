@@ -1,27 +1,30 @@
-import React from 'react';
+import * as React from 'react';
 import { DateRange } from '../date-range';
+import { DateInput } from 'types';
 import './dashboard-filter.css';
 
-export class DashboardFilter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      vendor: '',
-      status: '',
-      scheduled: {
-        startDate: null,
-        endDate: null,
-        focused: null,
-      },
-      projected: {
-        startDate: null,
-        endDate: null,
-        focused: null,
-      }
-    };
+class DashboardFilterState {
+  vendor: any;
+  status: string;
+  scheduled: DateInput;
+  projected: DateInput;
+
+  constructor() {
+    this.vendor = '';
+    this.status = '';
+    this.scheduled = new DateInput();
+    this.projected = new DateInput();
+  }
+}
+
+export class DashboardFilter extends React.Component<null, DashboardFilterState> {
+  constructor() {
+    super(null);
+    this.state = new DashboardFilterState();
   }
 
-  setScheduledDates({ startDate, endDate }) {
+  setScheduledDates({ startDate, endDate }: DateInput) {
+    console.log('setting scheduled');
     const oldState = this.state.scheduled;
     const scheduled = {
       ...oldState,
@@ -31,7 +34,8 @@ export class DashboardFilter extends React.Component {
     this.setState({ scheduled });
   }
 
-  setProjectedDates({ startDate, endDate }) {
+  setProjectedDates({ startDate, endDate }: DateInput) {
+    console.log('setting projected');
     const oldState = this.state.projected;
     const projected = {
       ...oldState,
@@ -41,12 +45,12 @@ export class DashboardFilter extends React.Component {
     this.setState({ projected });
   }
 
-  focusScheduled(focused) {
+  focusScheduled(focused: any) {
     const scheduled = { ...this.state.scheduled, focused };
     this.setState({ scheduled });
   }
 
-  focusProjected(focused) {
+  focusProjected(focused: any) {
     const projected = { ...this.state.projected, focused };
     this.setState({ projected });
   }
@@ -69,28 +73,28 @@ export class DashboardFilter extends React.Component {
           </span>
         </span>
         <span className="dates">
-          <span className="scheduled date-range filter-option">
-            <span className="label">Scheduled Delivery</span>
-            <DateRange
-              startDateId="scheduledStart"
-              startDate={ this.state.scheduled.startDate }
-              endDateId="scheduledEnd"
-              endDate={ this.state.scheduled.endDate }
-              onDatesChange={ this.setScheduledDates.bind(this) }
-              onFocusChange={ this.focusScheduled.bind(this) }
-              focusedInput={ this.state.scheduled.focused }
-            />
-          </span>
           <span className="projected date-range filter-option">
             <span className="label">Projected Delivery</span>
             <DateRange
               startDateId="projectedStart"
-              startDate={ this.state.projected.startDate }
               endDateId="projectedEnd"
+              startDate={ this.state.projected.startDate }
               endDate={ this.state.projected.endDate }
               onDatesChange={ this.setProjectedDates.bind(this) }
               onFocusChange={ this.focusProjected.bind(this) }
-              focusedInput={ this.state.projected.focused }
+              focused={ this.state.projected.focused }
+            />
+          </span>
+          <span className="scheduled date-range filter-option">
+            <span className="label">Scheduled Delivery</span>
+            <DateRange
+              startDateId="scheduledStart"
+              endDateId="scheduledEnd"
+              startDate={ this.state.scheduled.startDate }
+              endDate={ this.state.scheduled.endDate }
+              onDatesChange={ this.setScheduledDates.bind(this) }
+              onFocusChange={ this.focusScheduled.bind(this) }
+              focused={ this.state.scheduled.focused }
             />
           </span>
         </span>

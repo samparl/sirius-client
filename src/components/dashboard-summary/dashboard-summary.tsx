@@ -1,7 +1,8 @@
-import React from 'react';
+import * as React from 'react';
+import { SummaryType } from 'types';
 require('./dashboard-summary.css');
 
-export const DashboardSummary = (props) => (
+export const DashboardSummary = (props: SummaryType) => (
   <span className="DashboardSummary">
     <div className="summary-categories">
       <span className="summary-category on-time">

@@ -1,16 +1,27 @@
 {
     "compilerOptions": {
-        // "outDir": "./dist/",
+        "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        // "module": "commonjs",
+        "module": "commonjs",
         "target": "es5",
-        "jsx": "react"
+        "jsx": "react",
+        "baseUrl": ".",
+        "paths": {
+            "services": ["src/services"],
+            "utils": ["src/utils"],
+            "types": ["src/types"]
+        }
     },
     "include": [
         "./src/**/*"
     ],
     "exclude": [
         "./node_modules/*"
-    ]
+    ],
+    "awesomeTypescriptLoaderOptions": {
+        "useBabel": true,
+        "useCache": true,
+        "useTranspileModule": true
+    }
 }
