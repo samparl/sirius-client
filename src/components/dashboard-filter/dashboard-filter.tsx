@@ -18,13 +18,12 @@ class DashboardFilterState {
 }
 
 export class DashboardFilter extends React.Component<null, DashboardFilterState> {
-  constructor() {
-    super(null);
+  constructor(props: any) {
+    super(props);
     this.state = new DashboardFilterState();
   }
 
   setScheduledDates({ startDate, endDate }: DateInput) {
-    console.log('setting scheduled');
     const oldState = this.state.scheduled;
     const scheduled = {
       ...oldState,
@@ -35,7 +34,6 @@ export class DashboardFilter extends React.Component<null, DashboardFilterState>
   }
 
   setProjectedDates({ startDate, endDate }: DateInput) {
-    console.log('setting projected');
     const oldState = this.state.projected;
     const projected = {
       ...oldState,
