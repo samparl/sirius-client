@@ -37,13 +37,6 @@ div, input, span {
   text-align: left;
 }
 
-.App-menu {
-  display: grid;
-  justify-content: right;
-  align-content: center;
-  font-size: 3em;
-}
-
 .App-body {
   margin: 1rem;
 }
