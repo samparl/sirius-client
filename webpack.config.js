@@ -9,7 +9,9 @@ module.exports = {
   },
   devServer: {
     contentBase: __dirname,
-    port: 3001
+    port: 3001,
+    historyApiFallback: true
+
   },
   devtool: 'source-map',
   module: {

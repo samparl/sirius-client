@@ -19,9 +19,16 @@ div, input, span {
   vertical-align: middle;
 }
 
-.App-icon {
+.App-header > a {
+  display: inline-block;
   width: 4rem;
+  height: 4rem;
   align-self: center;
+}
+
+.App-header > a > .App-icon {
+  width: 4rem;
+  object-fit: contain;
 }
 
 .App-title {
