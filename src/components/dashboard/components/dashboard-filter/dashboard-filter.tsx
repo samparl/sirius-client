@@ -66,7 +66,7 @@ export class DashboardFilter extends React.Component<null, DashboardFilterState>
             <span className="label">Vendor</span>
             <input className="filter-input"
               onChange={ e => this.setState({ vendor: e.target.value }) }
-              value={ this.state.vendor && this.state.vendor } />
+              value={ this.state.vendor } />
           </span>
           <span className="status dropdown filter-option">
             <span className="label">Status</span>

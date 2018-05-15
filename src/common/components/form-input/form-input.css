@@ -1,0 +1,12 @@
+.FormInput input {
+    padding: 5px 6px 5px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: lighter;
+    width: 100%;
+    border: 1px solid #cacccd;
+}
+
+.FormInput input:focus {
+    outline: none;
+}
