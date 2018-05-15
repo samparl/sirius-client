@@ -4,3 +4,7 @@
   align-content: center;
   font-size: 3em;
 }
+
+.App-menu .menu:hover, .App-menu .user-circle:hover {
+  cursor: pointer;
+}

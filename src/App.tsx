@@ -2,12 +2,16 @@ import * as React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 import { Dashboard, DefaultView, ProtectedRoute, AppMenu } from './components';
-import { AuthService, AuthState } from 'common/services';
+import { AuthStore, AuthState } from 'common/services';
 
 class App extends React.Component<null, AuthState> {
   constructor(props: any) {
     super(props);
-    this.state = AuthService.getState();
+    this.state = AuthStore.getState();
+  }
+
+  componentDidMount() {
+    AuthStore.listen(state => this.setState(state));
   }
 
   render() {

@@ -1,5 +1,5 @@
 export class Store<T> {
-  private listeners: (()=>void)[] = [];
+  private listeners: ((state?: AuthState)=>void)[] = [];
   private _state: any; // Need to figure out how to properly type this or generically generate state from type T
 
   constructor() {
@@ -11,18 +11,19 @@ export class Store<T> {
     )
   }
 
-  public listen(callback: () => void) {
+  public listen(callback: (state?: AuthState) => void) {
     const index = this.listeners.push(callback);
     return () => { delete this.listeners[index]; }; // Return disposal method
   }
 
-  public get state() {
+  public getState() {
     return { ...this._state };
   }
 
   public setState(changes: T) {
-    this._state = { ...this._state, changes };
-    this.listeners.forEach(listener => listener());
+    const state = Object.assign({}, this._state, changes);
+    this._state = state;
+    this.listeners.forEach(listener => listener(state));
   }
 }
 
@@ -34,18 +35,14 @@ export class AuthState {
   }
 }
 
-const AuthStore = new Store<AuthState>()
+export const AuthStore = new Store<AuthState>();
 
 export const AuthService = {
-  getState(): AuthState {
-    return AuthStore.state;
-  },
-
   login(): void {
-    setTimeout(() => { AuthStore.setState({ ...AuthStore.state, user: {} }); }, 200);
+    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: {} }); }, 200);
   },
 
   logout(): void {
-    setTimeout(() => { AuthStore.setState({ ...AuthStore.state, user: null }); }, 200);
+    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: null }); }, 200);
   }
 }
