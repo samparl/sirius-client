@@ -30,10 +30,12 @@ export class Login extends React.Component<any, any> {
   render() {
       return (
         <form className="Login" onSubmit={this.onSubmit.bind(this)}>
-          Please login to continue!
-          <FormInput label="Email" type="string" value={ this.state.email } onChange={ this.setEmail.bind(this) } />
-          <FormInput label="Password" type="password" value={ this.state.password } onChange={ this.setPassword.bind(this) } />
+          <div className="form-block">
+            <div className="form-pre-text">Please login to continue!</div>
+            <FormInput label="Email" type="string" value={ this.state.email } onChange={ this.setEmail.bind(this) } />
+            <FormInput label="Password" type="password" value={ this.state.password } onChange={ this.setPassword.bind(this) } />
           <input type="submit" value="Login" />
+          </div>
         </form>
       )
   }

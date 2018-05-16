@@ -1,5 +1,31 @@
-.Login .FormInput {
+.Login .form-block {
   display: block;
   width: 50%;
   margin: auto;
+  padding: 1rem 2rem;
+  min-width: 20rem;
+}
+
+.Login .form-pre-text {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.Login .FormInput {
+  display: block;
+}
+
+.Login .FormInput + .FormInput {
+  margin-top: 1rem;
+}
+
+.Login input[type="submit"] {
+  font-size: 16px;
+  padding: 1rem 2rem;
+  border: 1px solid #eee;
+  margin-top: 1rem;
+}
+.Login input[type="submit"]:hover {
+  cursor: pointer;
+  background: #eee;
 }
