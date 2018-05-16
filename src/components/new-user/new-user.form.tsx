@@ -9,6 +9,7 @@ interface NewUserFormProps {
   onEmail: () => void;
   onPassword: () => void;
 }
+
 export class NewUserForm extends React.Component<any, any> {
   render() {
     return (

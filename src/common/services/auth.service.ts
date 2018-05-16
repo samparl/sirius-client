@@ -1,4 +1,4 @@
-import { Credentials } from 'common/types';
+import { Credentials, NewUserDetails } from 'common/types';
 
 export class Store<T> {
   private listeners: ((state?: AuthState)=>void)[] = [];
@@ -46,5 +46,9 @@ export const AuthService = {
 
   logout(): void {
     setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: null }); }, 1000);
+  },
+
+  newUser(user: NewUserDetails): void {
+    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: {} }); }, 1000);
   }
 }

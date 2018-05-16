@@ -3,7 +3,7 @@ import './login.css';
 import { FormInput } from 'common/components';
 import { AuthService } from 'common/services';
 import { Credentials } from 'common/types';
-import { Spinner } from '../spinner';
+import { Spinner } from 'common/components';
 import { CredentialsForm } from './credentials-form';
 
 interface LoginState {

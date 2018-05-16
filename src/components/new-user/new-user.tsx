@@ -1,15 +1,8 @@
 import * as React from 'react';
+import { NewUserDetails } from 'common/types';
+import { AuthService } from 'common/services';
 import { NewUserForm } from './new-user.form';
-
-class NewUserDetails {
-  email: string;
-  password: string;
-
-  constructor(options?: NewUserDetails) {
-    this.email = (options && options.email) || '';
-    this.password = (options && options.password) || '';
-  }
-}
+import { Spinner } from 'common/components';
 
 class NewUserState {
   details: NewUserDetails;
@@ -36,15 +29,26 @@ export class NewUser extends React.Component<null, any> {
     this.setState({ details });
   }
 
+  onSubmit(e: Event) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    this.setState({ loading: true })
+    AuthService.newUser(this.state.details);
+  }
+
   render() {
+    const loading = this.state.loading ? <Spinner /> : null;
     return (
       <div className="NewUser">
         <h2>Create an account</h2>
         <NewUserForm
           {...this.state.details}
+          onSubmit={this.onSubmit.bind(this)}
           onEmail={this.onEmail.bind(this)}
           onPassword={this.onPassword.bind(this)}
         />
+        {loading}
       </div>
     )
   }
