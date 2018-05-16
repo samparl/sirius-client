@@ -1,0 +1,10 @@
+input.SubmitButton {
+  font-size: 16px;
+  padding: 1rem 2rem;
+  border: 1px solid #eee;
+  margin-top: 1rem;
+}
+input.SubmitButton:hover {
+  cursor: pointer;
+  background: #eee;
+}
