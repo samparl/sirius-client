@@ -2,21 +2,17 @@ import * as React from 'react';
 import './login.css';
 import { FormInput } from 'common/components';
 import { AuthService } from 'common/services';
+import { Credentials } from 'common/types';
 
-export class Login extends React.Component<any, any> {
-  ref: React.RefObject<any>;
-
+export class Login extends React.Component<any, Credentials> {
   constructor(props: any) {
     super(props);
-    this.state = {
-      email: '',
-      password: '',
-    }
+    this.state = new Credentials();
   }
 
   onSubmit(e: Event) {
     e.preventDefault();
-    AuthService.login();
+    AuthService.login(this.state);
   }
 
   setEmail(event: React.ChangeEvent<HTMLInputElement>) {

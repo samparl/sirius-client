@@ -1,3 +1,5 @@
+import { Credentials } from 'common/types';
+
 export class Store<T> {
   private listeners: ((state?: AuthState)=>void)[] = [];
   private _state: any; // Need to figure out how to properly type this or generically generate state from type T
@@ -38,7 +40,7 @@ export class AuthState {
 export const AuthStore = new Store<AuthState>();
 
 export const AuthService = {
-  login(): void {
+  login(credentials: Credentials): void {
     setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: {} }); }, 200);
   },
 
