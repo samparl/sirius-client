@@ -41,10 +41,10 @@ export const AuthStore = new Store<AuthState>();
 
 export const AuthService = {
   login(credentials: Credentials): void {
-    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: {} }); }, 200);
+    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: {} }); }, 1000);
   },
 
   logout(): void {
-    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: null }); }, 200);
+    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: null }); }, 1000);
   }
 }
