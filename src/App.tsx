@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
-import { Dashboard, DefaultView, ProtectedRoute, AppMenu, NewUser } from './components';
+import { Dashboard, DefaultView, ProtectedRoute, AppMenu, NewUser, PublicRoute, RouteNotFound } from './components';
 import { AuthStore, AuthState } from 'common/services';
 
 class App extends React.Component<null, AuthState> {
@@ -21,12 +21,15 @@ class App extends React.Component<null, AuthState> {
           <header className="App-header">
             <Link to="/dashboard"><img className="App-icon" src="assets/images/dog-outline.png" /></Link>
             <span className="App-title">Welcome to Sirius!</span>
-            <AppMenu user={ this.state.user } />
+            <AppMenu user={this.state.user} />
           </header>
           <div className="App-body">
-            <Route exact path="/" component={DefaultView} />
-            <Route exact path="/new" component={NewUser} />
-            <ProtectedRoute path="/dashboard" component={ Dashboard } />
+            <Switch>
+              <Route exact path="/" component={DefaultView} />
+              <PublicRoute exact path="/new" component={NewUser} />
+              <ProtectedRoute path="/dashboard" component={Dashboard} />
+              <Route component={RouteNotFound} />
+            </Switch>
           </div>
         </div>
       </BrowserRouter>
