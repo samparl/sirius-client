@@ -25,7 +25,12 @@
   border: 1px solid #eee;
   margin-top: 1rem;
 }
+
 .Login input[type="submit"]:hover {
   cursor: pointer;
   background: #eee;
+}
+
+.Login a {
+  margin-left: 2rem;
 }

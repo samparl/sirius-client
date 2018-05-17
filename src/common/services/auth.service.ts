@@ -1,4 +1,4 @@
-import { Credentials, NewUserDetails } from 'common/types';
+import { Credentials, NewUserDetails, User } from 'common/types';
 
 export class Store<T> {
   private listeners: ((state?: AuthState)=>void)[] = [];
@@ -7,6 +7,7 @@ export class Store<T> {
   constructor() {
     this._state = new AuthState();
   }
+
   private get properties() {
     return Object.keys(this._state).reduce((acc, prop) => 
       this._state.hasOwnProperty(prop) ? [prop, ...acc] : acc, []
@@ -30,7 +31,7 @@ export class Store<T> {
 }
 
 export class AuthState {
-  user: any;
+  user: User;
 
   constructor() {
     this.user = null;
@@ -40,15 +41,30 @@ export class AuthState {
 export const AuthStore = new Store<AuthState>();
 
 export const AuthService = {
-  login(credentials: Credentials): void {
-    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: {} }); }, 1000);
+  login(credentials: Credentials): Promise<User> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        AuthStore.setState({ ...AuthStore.getState(), user: {} });
+        resolve({});
+      }, 1000)
+    });
   },
 
-  logout(): void {
-    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: null }); }, 1000);
+  logout(): Promise<User> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        AuthStore.setState({ ...AuthStore.getState(), user: null });
+        resolve({});
+      }, 1000)
+    });
   },
 
-  newUser(user: NewUserDetails): void {
-    setTimeout(() => { AuthStore.setState({ ...AuthStore.getState(), user: {} }); }, 1000);
+  newUser(user: NewUserDetails): Promise<User> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        AuthStore.setState({ ...AuthStore.getState(), user: {} });
+        resolve({});
+      }, 1000)
+    });
   }
 }

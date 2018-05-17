@@ -17,3 +17,7 @@ export class NewUserDetails {
     this.password = (options && options.password) || '';
   }
 }
+
+export interface User {
+
+}

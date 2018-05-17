@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import './new-user.css';
 import { FormInput, SubmitButton } from 'common/components';
 
@@ -17,6 +18,7 @@ export class NewUserForm extends React.Component<any, any> {
         <FormInput label="Email" value={this.props.email} onChange={this.props.onEmail} />
         <FormInput label="Password" type="password" value={this.props.password} onChange={this.props.onPassword} />
         <SubmitButton value="Create account" />
+        <Link to="login">Login</Link>
       </form>
     )
   }

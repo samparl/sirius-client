@@ -1,7 +1,16 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
-import { Dashboard, DefaultView, ProtectedRoute, AppMenu, NewUser, PublicRoute, RouteNotFound } from './components';
+import {
+  Dashboard,
+  DefaultView,
+  ProtectedRoute,
+  AppMenu,
+  NewUser,
+  PublicRoute,
+  RouteNotFound,
+  Login,
+} from './components';
 import { AuthStore, AuthState } from 'common/services';
 
 class App extends React.Component<null, AuthState> {
@@ -27,6 +36,7 @@ class App extends React.Component<null, AuthState> {
             <Switch>
               <Route exact path="/" component={DefaultView} />
               <PublicRoute exact path="/new" component={NewUser} />
+              <PublicRoute exact path="/login" component={Login} />
               <ProtectedRoute path="/dashboard" component={Dashboard} />
               <Route component={RouteNotFound} />
             </Switch>
