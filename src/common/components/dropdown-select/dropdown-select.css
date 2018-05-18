@@ -1,12 +1,12 @@
-.FilterDropdown {
+.DropdownSelect {
     position: relative;
 }
 
-.FilterDropdown:hover {
+.DropdownSelect:hover {
     cursor: pointer;
 }
 
-.FilterDropdown .filter-dropdown-options {
+.DropdownSelect .dropdown-select-options {
     position: absolute;
     z-index: 1;
     cursor: default;
@@ -17,11 +17,11 @@
     box-shadow: 0 2px 1px 1px #eee;
 }
 
-.FilterDropdown .filter-dropdown-option {
+.DropdownSelect .dropdown-select-option {
     padding: .5rem 1rem;
 }
 
-.FilterDropdown .filter-dropdown-option:hover {
+.DropdownSelect .dropdown-select-option:hover {
     background: #eee;
     cursor: pointer;
 }

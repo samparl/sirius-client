@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './dashboard-filter.css';
 import { DateInput } from 'common/types';
-import { DateRange, FilterDropdown } from 'common/components';
+import { DateRange, DropdownSelect } from 'common/components';
 
 class DashboardFilterState {
   vendor: any;
@@ -70,7 +70,7 @@ export class DashboardFilter extends React.Component<null, DashboardFilterState>
           </span>
           <span className="status dropdown filter-option">
             <span className="label">Status</span>
-            <FilterDropdown options={ options } onSelect={ this.onSelectStatus.bind(this) } />
+            <DropdownSelect options={ options } onSelect={ this.onSelectStatus.bind(this) } />
           </span>
         </span>
         <span className="dates">

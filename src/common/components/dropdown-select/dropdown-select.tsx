@@ -1,12 +1,12 @@
 import * as React from 'react';
-import './filter-dropdown.css';
+import './dropdown-select.css';
 
-interface FilterDropdownOption {
+interface DropdownSelectOption {
   name: string;
   value?: any;
 }
 
-class FilterDropdownState {
+class DropdownSelectState {
   selected: number;
   open: boolean;
 
@@ -16,17 +16,17 @@ class FilterDropdownState {
   }
 }
 
-interface FilterDropdownProps {
-  options: FilterDropdownOption[];
-  onSelect?: (option: FilterDropdownOption, index: number, event: Event) => {};
+interface DropdownSelectProps {
+  options: DropdownSelectOption[];
+  onSelect?: (option: DropdownSelectOption, index: number, event: Event) => {};
 }
 
-export class FilterDropdown extends React.Component<FilterDropdownProps, FilterDropdownState> {
+export class DropdownSelect extends React.Component<DropdownSelectProps, DropdownSelectState> {
   node: HTMLDivElement;
 
   constructor(props: any) {
     super(props);
-    this.state = new FilterDropdownState();
+    this.state = new DropdownSelectState();
   }
 
   componentDidMount() {
@@ -59,10 +59,10 @@ export class FilterDropdown extends React.Component<FilterDropdownProps, FilterD
 
   render() {
     const options = !this.state.open ? null :
-      <div className="filter-dropdown-options">
+      <div className="dropdown-select-options">
         {
           this.props.options.map((option, index) => {
-            const className = 'filter-dropdown-option' + (this.isSelected(index) ? ' selected' : '');
+            const className = 'dropdown-select-option' + (this.isSelected(index) ? ' selected' : '');
             return <div className={className}
               key={index}
               onClick={this.select.bind(this, option, index)}>
@@ -74,7 +74,7 @@ export class FilterDropdown extends React.Component<FilterDropdownProps, FilterD
 
     const selected = this.props.options[this.state.selected] && this.props.options[this.state.selected].name;
     return (
-      <div className="FilterDropdown" onClick={this.toggle.bind(this)} ref={node => this.node = node}>
+      <div className="DropdownSelect" onClick={this.toggle.bind(this)} ref={node => this.node = node}>
         <div className="selected-option">{selected || 'Select'}</div>
         {options}
       </div>
