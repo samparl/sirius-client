@@ -1,23 +1,44 @@
-.App-menu {
+.AppMenu {
   display: grid;
   justify-content: right;
   align-content: center;
-  font-size: 3em;
 }
 
-.App-menu .menu:hover, .App-menu .user-circle:hover {
+.AppMenu .menu-icon:hover, .AppMenu .user-circle:hover {
   cursor: pointer;
 }
 
-.App-menu .menu {
+.AppMenu .menu-icon {
   width: 1.25em;
   height: 1em;
   position: relative;
   background: linear-gradient(
     to bottom, 
     white, white 20%, 
-    black 20%, black 40%, 
+    transparent 20%, transparent 40%, 
     white 40%, white 60%, 
-    black 60%, black 80%, 
+    transparent 60%, transparent 80%, 
     white 80%, white 100%
-  );}
+  );
+}
+
+.AppMenu .menu-icon .menu-options {
+  border: 1px solid #eee;
+  background: white;
+  color: black;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  padding: 1rem 0;
+}
+
+.AppMenu .menu-icon .menu-option {
+  width: 10rem;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+}
+
+.AppMenu .menu-icon .menu-option:hover {
+  cursor: pointer;
+  background: #eee;
+}

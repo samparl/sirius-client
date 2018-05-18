@@ -8,20 +8,17 @@ import { CredentialsForm } from './credentials-form';
 
 interface LoginState {
   credentials: Credentials;
-  loading: boolean;
 }
 export class Login extends React.Component<any, LoginState> {
   constructor(props: any) {
     super(props);
     this.state = {
       credentials: new Credentials(),
-      loading: false
     };
   }
 
   onSubmit(e: Event) {
     e.preventDefault();
-    this.setState({loading: true});
     AuthService.login(this.state.credentials);
   }
 
@@ -36,7 +33,6 @@ export class Login extends React.Component<any, LoginState> {
   }
 
   render() {
-    const loading = this.state.loading ? <Spinner /> : null;
     return (
       <div className="Login">
         <CredentialsForm
@@ -44,7 +40,6 @@ export class Login extends React.Component<any, LoginState> {
           setEmail={this.setEmail.bind(this)}
           setPassword={this.setPassword.bind(this)}
           onSubmit={this.onSubmit.bind(this)} />
-        {loading}
       </div>
     )
   }

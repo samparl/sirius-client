@@ -12,6 +12,7 @@ import {
   Login,
 } from './components';
 import { AuthStore, AuthState } from 'common/services';
+import { Spinner } from 'common/components';
 
 class App extends React.Component<null, AuthState> {
   constructor(props: any) {
@@ -24,13 +25,20 @@ class App extends React.Component<null, AuthState> {
   }
 
   render() {
+    const loader = this.state.loading ? <Spinner /> : null;
     return (
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
             <Link to="/dashboard"><img className="App-icon" src="assets/images/dog-outline.png" /></Link>
             <span className="App-title">Welcome to Sirius!</span>
-            <AppMenu user={this.state.user} />
+            <div className="App-navigation">
+              <AppMenu user={this.state.user} />
+              {/* <Switch>
+                <Route component={AppMenu} />
+                <PublicRoute render={() => <i className="user-circle far fa-user-circle"></i>} />
+              </Switch> */}
+            </div>
           </header>
           <div className="App-body">
             <Switch>
@@ -41,6 +49,7 @@ class App extends React.Component<null, AuthState> {
               <Route component={RouteNotFound} />
             </Switch>
           </div>
+          {loader}
         </div>
       </BrowserRouter>
     );

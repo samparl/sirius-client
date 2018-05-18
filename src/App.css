@@ -19,6 +19,13 @@ div, input, span {
   vertical-align: middle;
 }
 
+.App-header .App-navigation {
+  display: grid;
+  font-size: 3em;
+  align-content: center;
+  justify-content: right;
+}
+
 .App-header > a {
   display: inline-block;
   width: 4rem;

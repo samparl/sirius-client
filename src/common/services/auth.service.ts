@@ -32,9 +32,11 @@ export class Store<T> {
 
 export class AuthState {
   user: User;
+  loading: boolean;
 
   constructor() {
     this.user = null;
+    this.loading = false;
   }
 }
 
@@ -42,18 +44,20 @@ export const AuthStore = new Store<AuthState>();
 
 export const AuthService = {
   login(credentials: Credentials): Promise<User> {
+    AuthStore.setState({ ...AuthStore.getState(), loading: true });
     return new Promise(resolve => {
       setTimeout(() => {
-        AuthStore.setState({ ...AuthStore.getState(), user: {} });
+        AuthStore.setState({ ...AuthStore.getState(), user: {}, loading: false });
         resolve({});
       }, 1000)
     });
   },
 
   logout(): Promise<User> {
+    AuthStore.setState({ ...AuthStore.getState(), loading: true });
     return new Promise(resolve => {
       setTimeout(() => {
-        AuthStore.setState({ ...AuthStore.getState(), user: null });
+        AuthStore.setState({ ...AuthStore.getState(), user: null, loading: false });
         resolve({});
       }, 1000)
     });
