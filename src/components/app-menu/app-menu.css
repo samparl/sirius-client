@@ -8,3 +8,16 @@
 .App-menu .menu:hover, .App-menu .user-circle:hover {
   cursor: pointer;
 }
+
+.App-menu .menu {
+  width: 1.25em;
+  height: 1em;
+  position: relative;
+  background: linear-gradient(
+    to bottom, 
+    white, white 20%, 
+    black 20%, black 40%, 
+    white 40%, white 60%, 
+    black 60%, black 80%, 
+    white 80%, white 100%
+  );}

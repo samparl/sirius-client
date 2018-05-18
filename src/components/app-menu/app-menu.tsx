@@ -17,7 +17,7 @@ export class AppMenu extends React.Component<any, any>  {
   render() {
     const loading = this.state.loading ? <Spinner /> : null
     const content = !!this.props.user
-      ? <div className="menu" onClick={this.logout.bind(this)}>Menu</div>
+      ? <div className="menu" onClick={this.logout.bind(this)}></div>
       : <i className="user-circle far fa-user-circle"></i>
     return (
       <span className="App-menu">
