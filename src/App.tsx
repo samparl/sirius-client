@@ -34,10 +34,6 @@ class App extends React.Component<null, AuthState> {
             <span className="App-title">Welcome to Sirius!</span>
             <div className="App-navigation">
               <AppMenu user={this.state.user} />
-              {/* <Switch>
-                <Route component={AppMenu} />
-                <PublicRoute render={() => <i className="user-circle far fa-user-circle"></i>} />
-              </Switch> */}
             </div>
           </header>
           <div className="App-body">
