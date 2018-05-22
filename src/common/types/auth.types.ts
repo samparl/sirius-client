@@ -8,11 +8,11 @@ export class Credentials {
   }
 }
 
-export class NewUserDetails {
+export class NewCustomerDetails {
   email: string;
   password: string;
 
-  constructor(options?: NewUserDetails) {
+  constructor(options?: NewCustomerDetails) {
     this.email = (options && options.email) || '';
     this.password = (options && options.password) || '';
   }

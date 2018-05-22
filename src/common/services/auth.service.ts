@@ -1,4 +1,4 @@
-import { Credentials, NewUserDetails, User } from 'common/types';
+import { Credentials, NewCustomerDetails, User } from 'common/types';
 
 export class Store<T> {
   private listeners: ((state?: AuthState)=>void)[] = [];
@@ -63,7 +63,7 @@ export const AuthService = {
     });
   },
 
-  newUser(user: NewUserDetails): Promise<User> {
+  NewCustomer(user: NewCustomerDetails): Promise<User> {
     return new Promise(resolve => {
       setTimeout(() => {
         AuthStore.setState({ ...AuthStore.getState(), user: {} });

@@ -4,8 +4,14 @@
   align-content: center;
 }
 
-.AppMenu .menu-icon:hover, .AppMenu .user-circle:hover {
+.AppMenu a:hover,
+.AppMenu .menu-icon:hover {
   cursor: pointer;
+}
+
+.AppMenu a:visited,
+.AppMenu a:active {
+  color: inherit;
 }
 
 .AppMenu .menu-icon {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, RouteProps, RouteComponentProps, Redirect } from 'react-router';
-import { Login } from './login';
+import { Login } from './authentication';
 import { DefaultView } from './default-view';
 import { AuthStore } from 'common/services';
 

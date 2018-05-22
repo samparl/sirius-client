@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, RouteProps, RouteComponentProps, Redirect } from 'react-router';
-import { Login } from './login';
+import { Login } from './authentication';
 import { AuthStore } from 'common/services';
 
 export const ProtectedRoute: React.SFC<RouteProps> = ({component: Component, ...rest}) => {{

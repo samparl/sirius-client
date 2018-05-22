@@ -6,7 +6,7 @@ import {
   DefaultView,
   ProtectedRoute,
   AppMenu,
-  NewUser,
+  NewCustomer,
   PublicRoute,
   RouteNotFound,
   Login,
@@ -39,7 +39,7 @@ class App extends React.Component<null, AuthState> {
           <div className="App-body">
             <Switch>
               <Route exact path="/" component={DefaultView} />
-              <PublicRoute exact path="/new" component={NewUser} />
+              <PublicRoute exact path="/new" component={NewCustomer} />
               <PublicRoute exact path="/login" component={Login} />
               <ProtectedRoute path="/dashboard" component={Dashboard} />
               <Route component={RouteNotFound} />

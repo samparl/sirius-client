@@ -1,10 +1,10 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import './login.css';
-import { FormInput } from 'common/components';
+
+import { FormInput, SubmitButton, Spinner } from 'common/components';
 import { AuthService } from 'common/services';
 import { Credentials } from 'common/types';
-import { Spinner } from 'common/components';
-import { CredentialsForm } from './credentials-form';
 
 interface LoginState {
   credentials: Credentials;
@@ -33,13 +33,16 @@ export class Login extends React.Component<any, LoginState> {
   }
 
   render() {
+    const {email, password} = this.state.credentials;
     return (
       <div className="Login">
-        <CredentialsForm
-          credentials={this.state.credentials}
-          setEmail={this.setEmail.bind(this)}
-          setPassword={this.setPassword.bind(this)}
-          onSubmit={this.onSubmit.bind(this)} />
+        <form className="form-block" onSubmit={this.onSubmit.bind(this)}>
+          <div className="form-pre-text">Please login to continue!</div>
+          <FormInput label="Email" type="string" value={email} onChange={this.setEmail.bind(this)} />
+          <FormInput label="Password" type="password" value={password} onChange={this.setPassword.bind(this)} />
+          <SubmitButton value="Login" />
+          <Link to="/new">Create account</Link>
+        </form>
       </div>
     )
   }

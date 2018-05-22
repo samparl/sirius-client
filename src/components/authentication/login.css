@@ -1,0 +1,23 @@
+.Login form,
+.NewCustomer form {
+  display: block;
+  width: 50%;
+  margin: auto;
+  padding: 1rem 2rem;
+  min-width: 20rem;
+}
+
+.Login .form-pre-text {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.Login .FormInput + .FormInput,
+.NewCustomer .FormInput + .FormInput {
+  margin-top: 1rem;
+}
+
+.Login a,
+.NewCustomer a {
+  margin-left: 2rem;
+}
