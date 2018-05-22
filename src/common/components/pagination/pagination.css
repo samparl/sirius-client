@@ -1,9 +1,10 @@
 .Pagination {
-  margin: 0 2em;
+  margin: auto;
   padding: 2em;
   list-style: none;
   display: flex;
   justify-content: space-between;
+  max-width: 50em;
 }
 
 .Pagination li a {
