@@ -9,7 +9,7 @@
 .Pagination li a {
   display: flex;
   border-radius: 100%;
-  width: 4em;
+  width: 2em;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -22,7 +22,7 @@
 .Pagination li:not(.break) a {
   box-shadow: 0 3px 10px 0 rgba(0,0,0,0.08);
   transition: box-shadow 0.2s ease-in-out;
-  height: 4em;
+  height: 2em;
 }
 
 .Pagination li:not(.break) a:not(.active):hover {
@@ -36,7 +36,8 @@
 }
 
 .Pagination li.break {
-  font-size: 2em;
+  font-size: 1em;
   letter-spacing: .5em;
   pointer-events: none;
+  align-self: center;
 }

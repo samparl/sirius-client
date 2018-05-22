@@ -14,6 +14,6 @@ export const Pagination: React.SFC<PaginationProps> = (props) => (
     previousLabel={ "<" }
     nextLabel={ ">" }
     pageCount={ props.pageCount }
-    marginPagesDisplayed={ 2 }
-    pageRangeDisplayed={ 5 } />
+    marginPagesDisplayed={ 1 }
+    pageRangeDisplayed={ 2 } />
 );
