@@ -11,6 +11,7 @@ import {
   RouteNotFound,
   Login,
 } from './components';
+// import Login from './components/authentication/login';
 import { AuthStore, AuthState } from 'common/services';
 import { Spinner } from 'common/components';
 

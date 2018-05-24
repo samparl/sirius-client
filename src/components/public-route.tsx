@@ -4,11 +4,9 @@ import { Login } from './authentication';
 import { DefaultView } from './default-view';
 import { AuthStore } from 'common/services';
 
-export const PublicRoute: React.SFC<RouteProps> = ({component: Component, ...rest}) => {{
-  const auth = AuthStore.getState();
-  return <Route { ...rest } render={ (props: RouteComponentProps<{}>) => {
-    return !auth.user
-      ? <Component { ...props } />
-      : <Redirect to='/' />
-  }} />
-}}
+export const PublicRoute: React.SFC<RouteProps> = ({component: Component, ...rest}) => {
+  return <Route { ...rest } render={ (props: RouteComponentProps<{}>) => !AuthStore.getState().user
+    ? <Component { ...props } />
+    : <Redirect to={{ pathname: '/', state: { referrer: rest.path } }} />
+  } />
+}

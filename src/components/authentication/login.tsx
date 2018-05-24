@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import { Link, BrowserRouter } from 'react-router-dom';
 import './login.css';
 
 import { FormInput, SubmitButton, Spinner } from 'common/components';
@@ -9,7 +10,8 @@ import { Credentials } from 'common/types';
 interface LoginState {
   credentials: Credentials;
 }
-export class Login extends React.Component<any, LoginState> {
+
+class LoginComponent extends React.Component<any, LoginState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -19,7 +21,8 @@ export class Login extends React.Component<any, LoginState> {
 
   onSubmit(e: Event) {
     e.preventDefault();
-    AuthService.login(this.state.credentials);
+    AuthService.login(this.state.credentials)
+      .then(() => this.props.history.push(this.props.location.state ? this.props.location.state.referrer : '/'));
   }
 
   setEmail(event: React.ChangeEvent<HTMLInputElement>) {
@@ -33,7 +36,7 @@ export class Login extends React.Component<any, LoginState> {
   }
 
   render() {
-    const {email, password} = this.state.credentials;
+    const { email, password } = this.state.credentials;
     return (
       <div className="Login">
         <form className="form-block" onSubmit={this.onSubmit.bind(this)}>
@@ -47,3 +50,5 @@ export class Login extends React.Component<any, LoginState> {
     )
   }
 }
+
+export const Login = withRouter(LoginComponent);
